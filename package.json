@@ -1,0 +1,22 @@
+{
+  "name": "react-native-basic-components",
+  "version": "1.0.0",
+  "description": "Basic Components for React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MosesEsan/react-native-basic-components.git"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "Moses Esan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MosesEsan/react-native-basic-components/issues"
+  },
+  "homepage": "https://github.com/MosesEsan/react-native-basic-components#readme"
+}
