@@ -24,20 +24,14 @@ const styles = StyleSheet.create({
     },
 
     optionButton:{
-        paddingHorizontal: 8
+        paddingLeft: 8,
+        paddingRight: 4
     },
 
     option: {
-        // height: 38,
-        width: 100,
-        // borderWidth: 1, borderColor: '#F1F0F1',
-        paddingHorizontal: 16,
-        paddingVertical: 10,
-        // borderRadius: 10,
+        paddingHorizontal: 20,
+        paddingVertical: 8,
         backgroundColor: '#E6E7F5',
-        // marginRight: 8,
-        justifyContent: "center",
-        alignItems: "center",
         flexDirection: "row",
         borderRadius: 50
 
@@ -51,11 +45,16 @@ const styles = StyleSheet.create({
         color: '#FFFFFF'
     },
 
+    icon:{
+
+        color: '#6962A1'
+    },
+
     optionText: {
         color: '#6962A1',
         fontFamily: font,
         fontWeight: "500",
-        fontSize: 13,
+        fontSize: 14
     }
 });
 export default styles;
