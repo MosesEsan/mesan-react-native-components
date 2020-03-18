@@ -3,7 +3,7 @@ import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 
 import styles from "./styles"
 
-export function Filters({filters, onFilter, currentFilter, border}) {
+export function Filter({filters, onFilter, currentFilter, border}) {
     let all = {name: "All", value: null};
     const [options, setOptions] = useState([all]);
 
@@ -35,10 +35,10 @@ export function Filters({filters, onFilter, currentFilter, border}) {
     );
 }
 
-Filters.defaultProps = {
+Filter.defaultProps = {
     border: true,
     onRetry:null
 };
 
-export default Filters;
+export default Filter;
 

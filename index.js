@@ -1,3 +1,3 @@
-import Filters from './Filters/Filters';
+import Filter from './Filter/Filter';
 
-export { Filters };
+export { Filter };
