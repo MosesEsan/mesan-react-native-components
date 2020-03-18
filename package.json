@@ -1,6 +1,6 @@
 {
   "name": "mesan-react-native-components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Basic Components for React Native",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,9 @@
   ],
   "author": "Moses Esan",
   "license": "ISC",
+  "dependencies": {
+    "react-native-elements": "^1.2.7"
+  },
   "bugs": {
     "url": "https://github.com/MosesEsan/react-native-basic-components/issues"
   },
