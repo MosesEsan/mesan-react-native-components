@@ -77,17 +77,15 @@ Shows a view with a error message and a retry button
 import React from 'react';
 import {View} from 'react-native';
 
-import {Filter} from 'mesan-react-native-components'
+import {Error} from 'mesan-react-native-components'
 
 export default function Example(props) {
-    const filters = [{name: "Music"}, {name: "Sport"}, {name: "Theatre"}];
-    const [currentFilter, setCurrentFilter] = useState(null);
     
-    const onFilter= (filter) => setCurrentFilter(filter);
+    const onRetry= () => console.log("Retrying....");
     
     return (
         <View>
-            <Error error={error} onRetry={getData}/>
+            <Error error={error} onRetry={onRetry}/>
         </View>
     );
 
