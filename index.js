@@ -1,4 +1,4 @@
-import Filter from './Filter/Filter';
 import {Placeholder, Loading, Error, Header, Footer, NavIcon} from './ListHelpers/ListHelpers';
+import FilterView from './FilterView';
 
-export { Filter, Placeholder, Loading, Error, Header, Footer, NavIcon };
+export { Placeholder, Loading, Error, Header, Footer, NavIcon, FilterView };
