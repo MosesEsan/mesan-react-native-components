@@ -1,6 +1,6 @@
 {
   "name": "mesan-react-native-components",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Basic Components for React Native",
   "main": "index.js",
   "scripts": {
