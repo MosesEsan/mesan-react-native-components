@@ -54,6 +54,41 @@ export default function Example(props) {
 | visible | object | optional | used to trigger the visibility of the Component, used only if 'modal' is true |
 
 
+### Panel
+Shows a panel
+
+```javascript
+import React from 'react';
+
+import {Panel} from 'mesan-react-native-components'
+
+export default function Example(props) {
+    return (
+        <View>
+            <Panel title={'Panel Header Title'}
+                   data={[{}, {}, ...]} 
+                   itemWidth={200}
+                   margin={12}
+                   containerStyle={{paddingTop: 12}}
+                   titleStyle={{fontFamily: font,color: "#0E0E27", marginBottom: 4}}
+                   renderItem={({item}) => <EventItem item={item} isFeatured={true}/>}/>
+        </View>
+    );
+
+};
+```
+
+| prop | value | required/optional | description |
+| ---- | ----- | ----------------- | ----------- |
+| title | string | optional | The panel title - Show at the top of panel |
+| data | object | required | the data to show |
+| itemWidth | number | required | the width of the child components |
+| margin | number | required | the margin between the child components |
+| containerStyle | function | optional | the style for the container |
+| titleStyle | function | optional | the style for the title |
+| renderItem | function | required | the component to render for each item |
+
+
 ### Loading
 Shows a large view with a centered large loading indicator.
 
