@@ -7,25 +7,39 @@ React Native Basic Components
 $ npm i mesan-react-native-components --save
 ```
 
-### Filter
-Shows a filter component
+### FilterView
+Shows a filter view
 
 ```javascript
 import React from 'react';
 import {View} from 'react-native';
 
-import {Filter} from 'mesan-react-native-components'
+import {FilterView} from 'mesan-react-native-components'
 
 export default function Example(props) {
-    const filters = [{name: "Music"}, {name: "Sport"}, {name: "Theatre"}];
-    const [currentFilter, setCurrentFilter] = useState(null);
+import {Footer, NavIcon, Placeholder, FilterView, Panel} from 'mesan-react-native-components'
+    const [selectedFilters, setSelectedFilters] = useState([]);
+    const [filterVisible, setFilterVisible] = useState(false);
     
-    const onFilter= (filter) => setCurrentFilter(filter);
+    //returns the filters and an array of selected
+    const onDone = ({filters, selected}) => setSelectedFilters(selected);
+    
+    const order_options = [{name: "Name"}, {name: "Age"}, {name: "Price"}];
+    const category_options = [{name: "Music"}, {name: "Sport"}, {name: "Theatre"}];
+    const filters = [
+        {title: "Order By", options: order_options}, 
+        {title: "Category", options: category_options}
+    ];
     
     return (
         <View>
-            <Filter filters={filters} onFilter={onFilter} currentFilter={currentFilter}/>
-            <Text>{currentFilter}</Text>
+            <FilterView
+                modal={true}
+                filters={filters}
+                visible={filterVisible}
+                onDone={onDone}
+                onCancel={() => setFilterVisible(false)}/>
+            <Text>{selectedFilters.toString()}</Text>
         </View>
     );
 
@@ -34,9 +48,11 @@ export default function Example(props) {
 
 | prop | value | required/optional | description |
 | ---- | ----- | ----------------- | ----------- |
+| modal | boolean | optional | indicates if the filter view will be displayed in a modal or not. if true, view is hidden until triggered |
 | filters | array | required | an array of objects of filters to display |
-| onFilter | function | required | the function called when the item is tapped |
-| currentFilter | object | required | the currently selected filter |
+| onDone | function | required | the function called when the 'Done' button is tapped |
+| onCancel | function | required | the function called when the 'Cancel' button is tapped |
+| visible | object | optional | used to trigger the visibility of the Component, used only if 'modal' is true |
 
 
 ### Loading
