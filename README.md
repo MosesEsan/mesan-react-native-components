@@ -17,7 +17,6 @@ import {View} from 'react-native';
 import {FilterView} from 'mesan-react-native-components'
 
 export default function Example(props) {
-import {Footer, NavIcon, Placeholder, FilterView, Panel} from 'mesan-react-native-components'
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [filterVisible, setFilterVisible] = useState(false);
     
