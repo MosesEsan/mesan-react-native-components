@@ -42,6 +42,22 @@ Error.defaultProps = {
 };
 
 
+//EMPTY COMPONENT
+export const Empty = ({message}) => {
+    return (
+        <View style={styles.container}>
+            <Text style={styles.errorMessage}>
+                {`${message}`}
+            </Text>
+        </View>
+    )
+};
+
+Empty.defaultProps = {
+    message: "No Data to Display"
+};
+
+
 //HEADER COMPONENT
 export const Header = ({title, ctaText,  onPress, ctaStyle, containerStyle}) => {
     return (
@@ -72,18 +88,15 @@ export const Footer = () => {
 };
 
 //NavIcon COMPONENT
-export const NavIcon = ({type, name, size, color, onPress}) => {
+export const NavIcon = ({type, name, size, color, onPress, style}) => {
     return (
-        <TouchableHighlight underlayColor="rgba(0, 0, 0, 0)" style={styles.navWrapper} onPress={onPress}>
-            <View>
-                <Icon type={type} name={name} size={size} color={color}/>
-            </View>
-        </TouchableHighlight>
+        <Icon type={type} name={name} size={size} color={color} containerStyle={[styles.navWrapper, style]} onPress={onPress} underlayColor="rgba(0, 0, 0, 0)"/>
     )
 };
 
 NavIcon.defaultProps = {
-    size: 22, color:"#FFFFFF"
+    size: 22, color:"#FFFFFF",
+    style: {}
 };
 
 const styles = StyleSheet.create({
@@ -106,9 +119,15 @@ const styles = StyleSheet.create({
 
     navWrapper: {
         height: 44,
-        width: 44 + 6,
+        width: 44,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginHorizontal: 8
+
+
+        // height: 40, width: 40, borderRadius: 40/2,
+        // marginHorizontal:4, backgroundColor:"#e4e6eb"
+        
     },
 
     header: {
