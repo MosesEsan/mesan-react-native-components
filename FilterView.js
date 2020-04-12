@@ -104,7 +104,7 @@ function Component(props) {
     };
 
     return (
-        <SafeAreaView style={{backgroundColor: "#eeeeee", flex: 1}}>
+        <SafeAreaView style={styles.container}>
             <Header {...props} onDone={onDone}/>
             <ScrollView style={{backgroundColor: "#eeeeee"}}>
                 {
@@ -151,9 +151,8 @@ function Component(props) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: "center",
-        backgroundColor: "#F5FCFF"
+        backgroundColor: "#ffffff",
+        flex: 1
     },
 
     headerContainer: {

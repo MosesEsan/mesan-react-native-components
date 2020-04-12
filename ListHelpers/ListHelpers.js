@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, ActivityIndicator, TouchableHighlight} from 'react-native';
+import {ActivityIndicator, StyleSheet, Text, View, TouchableHighlight} from 'react-native';
 import {Icon} from 'react-native-elements';
 
 //PLACEHOLDER COMPONENT
@@ -10,15 +10,15 @@ export const Placeholder = ({isFetching, error, onRetry}) => {
 };
 
 Placeholder.defaultProps = {
-    isFetching:false,
+    isFetching: false,
     error: "",
-    onRetry:null
+    onRetry: null
 };
 
 //Loading COMPONENT
 export const Loading = () => {
     return (
-        <View style={{flex:1, justifyContent:"center", marginTop:-30}}>
+        <View style={{flex: 1, justifyContent: "center", marginTop: -30}}>
             <ActivityIndicator style={{paddingVertical: 8}} size={'large'}/>
         </View>
     )
@@ -31,14 +31,14 @@ export const Error = ({error, onRetry}) => {
             <Text style={styles.errorMessage}>
                 {`${error.message}`}
             </Text>
-            {onRetry &&  <Text style={styles.retryText} onPress={onRetry}>Tap to retry</Text>}
+            {onRetry && <Text style={styles.retryText} onPress={onRetry}>Tap to retry</Text>}
         </View>
     )
 };
 
 Error.defaultProps = {
     error: "",
-    onRetry:null
+    onRetry: null
 };
 
 
@@ -59,7 +59,7 @@ Empty.defaultProps = {
 
 
 //HEADER COMPONENT
-export const Header = ({title, ctaText,  onPress, ctaStyle, containerStyle}) => {
+export const Header = ({title, ctaText, onPress, ctaStyle, containerStyle}) => {
     return (
         <View style={[styles.header, containerStyle]}>
             <Text style={styles.headerText}>
@@ -73,7 +73,7 @@ export const Header = ({title, ctaText,  onPress, ctaStyle, containerStyle}) => 
 Error.defaultProps = {
     title: "",
     ctaText: "",
-    onPress:null,
+    onPress: null,
     ctaStyle: {},
     containerStyle: {},
 };
@@ -88,27 +88,43 @@ export const Footer = () => {
 };
 
 //NavIcon COMPONENT
-export const NavIcon = ({type, name, size, color, onPress, style}) => {
+export const NavIcon = ({type, name, size, color, onPress, style, underlayColor, badge}) => {
+
+    if (badge && badge > 0) {
+        return (
+            <TouchableHighlight style={[styles.navWrapper, style, { }]} onPress={onPress} underlayColor={underlayColor}>
+                <View style={styles.badge}>
+                    <Text style={styles.badgeText}>{badge}</Text>
+                </View>
+            </TouchableHighlight>
+        )
+    }
+    
     return (
-        <Icon type={type} name={name} size={size} color={color} containerStyle={[styles.navWrapper, style]} onPress={onPress} underlayColor="rgba(0, 0, 0, 0)"/>
+        <Icon type={type} name={name} size={size} color={color} containerStyle={[styles.navWrapper, style]} onPress={onPress}
+              underlayColor={underlayColor}/>
     )
 };
 
 NavIcon.defaultProps = {
-    size: 22, color:"#FFFFFF",
+    badge: 0,
+    size: 22,
+    color: "#FFFFFF",
+    underlayColor: 'rgba(0, 0, 0, 0)',
     style: {}
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex:1, justifyContent:"center", alignItems:"center"
+        flex: 1, justifyContent: "center", alignItems: "center"
     },
 
-    errorMessage:{
-        fontSize: 16
+    errorMessage: {
+        fontSize: 16,
+        textAlign:"center"
     },
 
-    retryText:{
+    retryText: {
         color: "blue", fontSize: 16, padding: 8
     },
 
@@ -122,12 +138,12 @@ const styles = StyleSheet.create({
         width: 44,
         justifyContent: "center",
         alignItems: "center",
-        marginHorizontal: 8
+        marginHorizontal: 3
 
 
         // height: 40, width: 40, borderRadius: 40/2,
         // marginHorizontal:4, backgroundColor:"#e4e6eb"
-        
+
     },
 
     header: {
@@ -152,5 +168,21 @@ const styles = StyleSheet.create({
         color: "#D1644F",
         fontSize: 14,
         fontWeight: '500'
+    },
+
+    badge: {
+        backgroundColor: "#6962A1",
+        height: 24,
+        width: 24,
+        borderRadius: 24 / 2,
+        justifyContent: "center",
+        alignItems: "center",
+        marginRight: 4,
+        marginTop:-5
+    },
+
+    badgeText: {
+        fontSize: 12, color: "white",
+        fontWeight: '400',
     }
 });
