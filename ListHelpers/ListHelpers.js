@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator, StyleSheet, Text, View, TouchableHighlight} from 'react-native';
+import {ActivityIndicator, StyleSheet, Text, View, TouchableHighlight, Modal} from 'react-native';
 import {Icon} from 'react-native-elements';
 
 //PLACEHOLDER COMPONENT
@@ -114,6 +114,34 @@ NavIcon.defaultProps = {
     style: {}
 };
 
+export const OverlayContainer = ({children, modalVisible, message}) => {
+    return (
+        <View style={{flex: 1}}>
+            <Modal animationType="fade" transparent={true}
+                   visible={modalVisible}>
+                <View style={[styles.overlayContainer]}>
+                    <View style={[styles.overlayInnerContainer]}>
+                        <ActivityIndicator
+                            style={[styles.indicator]}
+                            size={'large'}
+                            color={'white'}/>
+
+                        <Text style={[styles.message, {color: 'white', fontSize: 24}]}>
+                            {message}
+                        </Text>
+                    </View>
+                </View>
+            </Modal>
+            {children}
+        </View>
+    )
+};
+
+OverlayContainer.defaultProps = {
+    modalVisible: false,
+    message: ""
+};
+
 const styles = StyleSheet.create({
     container: {
         flex: 1, justifyContent: "center", alignItems: "center"
@@ -184,5 +212,28 @@ const styles = StyleSheet.create({
     badgeText: {
         fontSize: 12, color: "white",
         fontWeight: '400',
+    },
+
+    overlayContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 20,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    },
+
+    overlayInnerContainer: {
+        borderRadius: 10,
+        alignItems: 'center',
+        padding: 20
+    },
+
+    indicator: {
+        marginBottom: 15
+    },
+
+    message: {
+        color: '#fff',
+        fontSize: 24,
+        fontWeight: '400'
     }
 });
