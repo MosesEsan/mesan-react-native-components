@@ -165,14 +165,14 @@ const styles = StyleSheet.create({
 
     navWrapper: {
         height: 44,
+        width:50,
         justifyContent: "center",
         alignItems: "center",
-
         backgroundColor: 'transparent'
     },
 
     icon: {
-        marginHorizontal: 16,
+        // marginHorizontal: 16,
     },
 
     header: {
@@ -201,13 +201,12 @@ const styles = StyleSheet.create({
 
     badge: {
         backgroundColor: "#6962A1",
-        height: 24,
-        width: 24,
-        borderRadius: 24 / 2,
+        height: 28,
+        width: 28,
+        borderRadius: 28 / 2,
         justifyContent: "center",
         alignItems: "center",
-        marginRight: 4,
-        marginTop:-5
+        marginHorizontal: 8,
     },
 
     badgeText: {
