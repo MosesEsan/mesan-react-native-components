@@ -99,9 +99,11 @@ export const NavIcon = ({type, name, size, color, onPress, style, underlayColor,
             </TouchableHighlight>
         )
     }
-    
     return (
-        <Icon type={type} name={name} size={size} color={color} containerStyle={[styles.navWrapper, style]} onPress={onPress}
+        <Icon type={type} name={name} size={size} color={color}
+              containerStyle={[styles.navWrapper, style]}
+              iconStyle={styles.icon}
+              onPress={onPress}
               underlayColor={underlayColor}/>
     )
 };
@@ -163,15 +165,15 @@ const styles = StyleSheet.create({
 
     navWrapper: {
         height: 44,
-        width: 44,
         justifyContent: "center",
         alignItems: "center",
-        marginHorizontal: 3
 
+        backgroundColor: 'transparent',
+        borderWidth:1
+    },
 
-        // height: 40, width: 40, borderRadius: 40/2,
-        // marginHorizontal:4, backgroundColor:"#e4e6eb"
-
+    icon: {
+        marginHorizontal: 16,
     },
 
     header: {
