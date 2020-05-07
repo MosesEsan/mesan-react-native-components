@@ -168,8 +168,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
 
-        backgroundColor: 'transparent',
-        borderWidth:1
+        backgroundColor: 'transparent'
     },
 
     icon: {
